@@ -319,24 +319,30 @@ def test_valida_numero_complemento_e_bairro():
 
 def test_exercicio2_customizado():
 
-    # Defina seus próprios valores para as variáveis a seguir
-    nome_loja = ""
-    logradouro = ""
-    numero = 0
-    complemento = ""
-    bairro = ""
-    municipio = ""
-    estado = ""
-    cep = ""
-    telefone = ""
-    observacao = ""
-    cnpj = ""
-    inscricao_estadual = ""
+    nome_loja = "Magic Box"
+    logradouro = "Baker St"
+    numero = 221
+    complemento = "EDA A24/25/26"
+    bairro = "Marylebone"
+    municipio = "Sunnydale"
+    estado = "CA"
+    cep = "79297"
+    telefone = "(213) 70374-7092"
+    observacao = "Loja TW (BTVS)"
+    cnpj = "98.650.809/0001-63"
+    inscricao_estadual = "55021852-1"
+
+    expected = "Magic Box\n"
+    expected += "Baker St, 221 EDA A24/25/26\n"
+    expected += "Marylebone - Sunnydale - CA\n"
+    expected += "CEP:79297 Tel (213) 70374-7092\n"
+    expected += "Loja TW (BTVS)\n"
+    expected += "CNPJ: 98.650.809/0001-63\n"
+    expected += "IE: 55021852-1"
 
     loja_customizada = cupom.Loja(nome_loja, logradouro, numero, complemento,
                                  bairro, municipio, estado, cep, telefone,
                                  observacao, cnpj, inscricao_estadual)
 
     # E atualize o texto esperado abaixo
-    assert (loja_customizada.dados_loja() == """
-""")
+    assert (loja_customizada.dados_loja() == expected)

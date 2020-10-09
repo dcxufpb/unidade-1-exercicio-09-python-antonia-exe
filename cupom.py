@@ -1,25 +1,27 @@
 # coding: utf-8
 
+
 def isEmpty(value: str) -> bool:
     return (value == None) or (len(value) == value.count(" "))
 
-class Loja:
-  def __init__(self, nome_loja, logradouro, numero, complemento, bairro, 
-               municipio, estado, cep, telefone, observacao, cnpj,
-               inscricao_estadual):
 
-    self.nome_loja = nome_loja
-    self.logradouro = logradouro
-    self.numero = numero
-    self.complemento = complemento
-    self.bairro = bairro
-    self.municipio = municipio
-    self.estado = estado
-    self.cep = cep
-    self.telefone = telefone
-    self.observacao = observacao
-    self.cnpj = cnpj
-    self.inscricao_estadual = inscricao_estadual
+class Loja:
+    def __init__(self, nome_loja, logradouro, numero, complemento, bairro,
+                 municipio, estado, cep, telefone, observacao, cnpj,
+                 inscricao_estadual):
+
+        self.nome_loja = nome_loja
+        self.logradouro = logradouro
+        self.numero = numero
+        self.complemento = complemento
+        self.bairro = bairro
+        self.municipio = municipio
+        self.estado = estado
+        self.cep = cep
+        self.telefone = telefone
+        self.observacao = observacao
+        self.cnpj = cnpj
+        self.inscricao_estadual = inscricao_estadual
 
     def dados_loja(self):
         if (isEmpty(self.nome_loja)):
@@ -28,7 +30,7 @@ class Loja:
         if (isEmpty(self.logradouro)):
             raise Exception("O campo logradouro do endereço é obrigatório")
 
-        numero = int ()
+        numero = int()
         try:
             numero = int(self.numero)
         except Exception:
@@ -45,9 +47,10 @@ class Loja:
 
         if (isEmpty(self.cnpj)):
             raise Exception("O campo CNPJ da loja é obrigatório")
-  
+
         if (isEmpty(self.inscricao_estadual)):
-            raise Exception("O campo inscrição estadual da loja é obrigatório")
+            raise Exception(
+                "O campo inscrição estadual da loja é obrigatório")
 
         linha2 = f"{self.logradouro}, {numero}"
         if not isEmpty(self.complemento):
